@@ -128,6 +128,7 @@
 		050C8D2D27CA2E45005572CE = {
 			isa = PBXGroup;
 			children = (
+				050C8DB427CC1D46005572CE /* README.md */,
 				050C8D3827CA2E45005572CE /* BabbelGame */,
 				050C8D4927CA2E4B005572CE /* BabbelGameTests */,
 				050C8D5327CA2E4B005572CE /* BabbelGameUITests */,
@@ -156,7 +157,6 @@
 				050C8D3F27CA2E4A005572CE /* Preview Content */,
 				050C8D6327CA2FCB005572CE /* SceneDelegate.swift */,
 				050C8D9827CACE92005572CE /* AppDelegate.swift */,
-				050C8DB427CC1D46005572CE /* README.md */,
 			);
 			path = BabbelGame;
 			sourceTree = "<group>";
