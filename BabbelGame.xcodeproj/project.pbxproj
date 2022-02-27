@@ -155,8 +155,6 @@
 				050C8D6727CA30EB005572CE /* Scene */,
 				050C8D3D27CA2E4A005572CE /* Assets.xcassets */,
 				050C8D3F27CA2E4A005572CE /* Preview Content */,
-				050C8D6327CA2FCB005572CE /* SceneDelegate.swift */,
-				050C8D9827CACE92005572CE /* AppDelegate.swift */,
 			);
 			path = BabbelGame;
 			sourceTree = "<group>";
@@ -197,6 +195,8 @@
 				050C8D8C27CA5973005572CE /* Utilities */,
 				050C8D7C27CA5022005572CE /* Resources */,
 				050C8D7A27CA4BB8005572CE /* GameConstants.swift */,
+				050C8D6327CA2FCB005572CE /* SceneDelegate.swift */,
+				050C8D9827CACE92005572CE /* AppDelegate.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
