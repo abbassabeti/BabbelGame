@@ -19,25 +19,17 @@ class CheckStateWorkerTests: XCTestCase {
     }
 
     func testIfNegativeScoresWontWin() throws {
-        let noWinnerExpectation = expectation(description: "There is a winner with negative points")
-        noWinnerExpectation.isInverted = true
         guard let worker = worker else {
             fatalError("Failed to initialize worker")
         }
         let players: [Player] = [4, 3, 2, 1].map {
             Player(name: "\($0)", correctAnswers: 0, incorrectAnswers: $0 * 5)
         }
-        if worker.checkIfGameIsDone(players: players) != nil {
-            noWinnerExpectation.fulfill()
-        }
-
-        wait(for: [noWinnerExpectation], timeout: 2)
+        let winner = worker.checkIfGameIsDone(players: players)
+        XCTAssertNil(winner, "There is a winner with negative points")
     }
 
     func testIfFirstPioneerPlayerWins() throws {
-        let winnerExpectation = expectation(description: "First pioneer player wins")
-        let initialNoWinnerExpectation = expectation(description: "No one wins with less than minimum score")
-        initialNoWinnerExpectation.isInverted = true
         guard let worker = worker else {
             fatalError("Failed to initialize worker")
         }
@@ -45,14 +37,11 @@ class CheckStateWorkerTests: XCTestCase {
             Player(name: "\($0)", correctAnswers: $0 * (GameConstants.minimumWinnerScore - 1), incorrectAnswers: 0)
         }
 
-        if worker.checkIfGameIsDone(players: players) != nil {
-            initialNoWinnerExpectation.fulfill()
-        }
-        players[3].incrementCorrectCount()
-        if worker.checkIfGameIsDone(players: players) != nil {
-            winnerExpectation.fulfill()
-        }
+        XCTAssertNil(worker.checkIfGameIsDone(players: players), "No one wins with less than minimum score")
 
-        wait(for: [winnerExpectation, initialNoWinnerExpectation], timeout: 2)
+        players[3].incrementCorrectCount()
+
+        XCTAssertNotNil(worker.checkIfGameIsDone(players: players), "First pioneer player wins")
+
     }
 }

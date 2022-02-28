@@ -16,7 +16,7 @@ struct InitialGameView<Model>: View where Model: InitialGamePresenterProtocol {
         self.presenter = presenter
     }
 
-    let timer = Timer.publish(every: 0.004, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.002, on: .main, in: .common).autoconnect()
 
     var body: some View {
         GeometryReader { geometry in
@@ -86,7 +86,7 @@ struct InitialGameView<Model>: View where Model: InitialGamePresenterProtocol {
                         animateValue = -0.5
                         return
                     }
-                    animateValue += 0.002
+                    animateValue += 0.001
                 }
             }
         )
