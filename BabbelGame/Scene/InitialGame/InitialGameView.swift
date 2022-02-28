@@ -10,11 +10,13 @@ import SwiftUI
 struct InitialGameView<Model>: View where Model: InitialGamePresenterProtocol {
 
     @ObservedObject var presenter: Model
-    @State private var animateValue: Double = -0.5
+    @State private var animateValue: Double = -0.48
 
     init(presenter: Model) {
         self.presenter = presenter
     }
+
+    let timer = Timer.publish(every: 0.004, on: .main, in: .common).autoconnect()
 
     var body: some View {
         GeometryReader { geometry in
@@ -52,7 +54,7 @@ struct InitialGameView<Model>: View where Model: InitialGamePresenterProtocol {
         let angle: Double = [1, 3].contains(index) ? -90 : 90
         return PlayerView(user: presenter.players[index], angle: angle, action: {
             guard presenter.winner == nil else {return}
-            animateValue = -0.5
+            animateValue = -0.48
             presenter.playFor(userIndex: index)
         })
     }
@@ -72,18 +74,19 @@ struct InitialGameView<Model>: View where Model: InitialGamePresenterProtocol {
                     Text(meaning)
                     .font(.system(size: 21))
                     .fontWeight(.bold)
-                    .frame(minWidth: 250, alignment: .center)
-                    .offset(y: animateValue * frameSize.height)
-                    .opacity(animateValue + 0.6)
-                    .onAnimationCompleted(for: animateValue) {
-                        animateValue = -0.5
-                        guard presenter.winner == nil else {return}
-                        _ = word?.getRandomMeaning()
-                        startGameAnimation()
-                    }
+                    .frame(alignment: .center)
+                    .offset(x: 0, y: animateValue * frameSize.height)
+                    .opacity(animateValue + 0.5)
                 }
                 .onAppear {
                     startGameAnimation()
+                }
+                .onReceive(timer) { _ in
+                    guard animateValue < 0.5 && presenter.winner == nil else {
+                        animateValue = -0.5
+                        return
+                    }
+                    animateValue += 0.002
                 }
             }
         )
@@ -111,13 +114,7 @@ struct InitialGameView<Model>: View where Model: InitialGamePresenterProtocol {
         )
     }
 
-    private func calculateOpacity(value: Double) -> CGFloat {
-        return -4 * value * value + 1
-    }
-
     private func startGameAnimation() {
-        withAnimation(Animation.easeInOut(duration: 3)) {
-            animateValue = 0.5
-        }
+        animateValue = -0.5
     }
 }

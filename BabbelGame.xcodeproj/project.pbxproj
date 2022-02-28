@@ -31,7 +31,6 @@
 		050C8D9927CACE92005572CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C8D9827CACE92005572CE /* AppDelegate.swift */; };
 		050C8D9B27CB90F0005572CE /* WordsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C8D9A27CB90F0005572CE /* WordsWorkerTests.swift */; };
 		050C8D9D27CB98C5005572CE /* CheckStateWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C8D9C27CB98C5005572CE /* CheckStateWorkerTests.swift */; };
-		050C8DA027CBCDEE005572CE /* AnimationCompletionObserverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C8D9F27CBCDEE005572CE /* AnimationCompletionObserverModifier.swift */; };
 		050C8DA527CBDCCE005572CE /* SpyInitialGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C8DA327CBDC99005572CE /* SpyInitialGameInteractor.swift */; };
 		050C8DA727CBDF4D005572CE /* MockInitialGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C8DA627CBDF4D005572CE /* MockInitialGamePresenter.swift */; };
 		050C8DA927CBE096005572CE /* InitialGameInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C8DA827CBE096005572CE /* InitialGameInteractorTests.swift */; };
@@ -87,7 +86,6 @@
 		050C8D9827CACE92005572CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		050C8D9A27CB90F0005572CE /* WordsWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsWorkerTests.swift; sourceTree = "<group>"; };
 		050C8D9C27CB98C5005572CE /* CheckStateWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckStateWorkerTests.swift; sourceTree = "<group>"; };
-		050C8D9F27CBCDEE005572CE /* AnimationCompletionObserverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCompletionObserverModifier.swift; sourceTree = "<group>"; };
 		050C8DA327CBDC99005572CE /* SpyInitialGameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyInitialGameInteractor.swift; sourceTree = "<group>"; };
 		050C8DA627CBDF4D005572CE /* MockInitialGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInitialGamePresenter.swift; sourceTree = "<group>"; };
 		050C8DA827CBE096005572CE /* InitialGameInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialGameInteractorTests.swift; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 		050C8D9E27CBCDDF005572CE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				050C8D9F27CBCDEE005572CE /* AnimationCompletionObserverModifier.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -436,7 +433,6 @@
 				050C8D6C27CA3181005572CE /* InitialGameView.swift in Sources */,
 				050C8D7727CA3431005572CE /* Player.swift in Sources */,
 				050C8D6A27CA311B005572CE /* InitialGameRouter.swift in Sources */,
-				050C8DA027CBCDEE005572CE /* AnimationCompletionObserverModifier.swift in Sources */,
 				050C8D7327CA338D005572CE /* WordsWorker.swift in Sources */,
 				050C8D7527CA33A5005572CE /* CheckStateWorker.swift in Sources */,
 				050C8DA527CBDCCE005572CE /* SpyInitialGameInteractor.swift in Sources */,
