@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Word : Codable {
-    let original : String
+struct Word: Codable {
+    let original: String
     let meaning: String
-    
+
     enum CodingKeys: String, CodingKey {
         case original = "text_eng"
         case meaning = "text_spa"

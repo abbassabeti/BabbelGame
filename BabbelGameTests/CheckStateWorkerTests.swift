@@ -9,8 +9,8 @@ import XCTest
 @testable import BabbelGame
 
 class CheckStateWorkerTests: XCTestCase {
-    var worker : CheckStateWorkerProtocol?
-    
+    var worker: CheckStateWorkerProtocol?
+
     override func setUpWithError() throws {
         worker = CheckStateWorker()
     }
@@ -18,37 +18,41 @@ class CheckStateWorkerTests: XCTestCase {
     override func tearDownWithError() throws {
     }
 
-    func testIfNegativeScoresWontWin() throws{
+    func testIfNegativeScoresWontWin() throws {
         let noWinnerExpectation = expectation(description: "There is a winner with negative points")
         noWinnerExpectation.isInverted = true
         guard let worker = worker else {
             fatalError("Failed to initialize worker")
         }
-        let players: [Player] = [4,3,2,1].map {Player(name: "\($0)", correctAnswers: 0, incorrectAnswers: $0 * 5)}
-        if let _ = worker.checkIfGameIsDone(players: players) {
+        let players: [Player] = [4, 3, 2, 1].map {
+            Player(name: "\($0)", correctAnswers: 0, incorrectAnswers: $0 * 5)
+        }
+        if worker.checkIfGameIsDone(players: players) != nil {
             noWinnerExpectation.fulfill()
         }
-        
+
         wait(for: [noWinnerExpectation], timeout: 2)
     }
-    
-    func testIfFirstPioneerPlayerWins() throws{
+
+    func testIfFirstPioneerPlayerWins() throws {
         let winnerExpectation = expectation(description: "First pioneer player wins")
         let initialNoWinnerExpectation = expectation(description: "No one wins with less than minimum score")
         initialNoWinnerExpectation.isInverted = true
         guard let worker = worker else {
             fatalError("Failed to initialize worker")
         }
-        let players: [Player] = [0,0,0,1].map {Player(name: "\($0)", correctAnswers: $0 * (GameConstants.minimumWinnerScore - 1), incorrectAnswers: 0)}
-        
-        if let _ = worker.checkIfGameIsDone(players: players) {
+        let players: [Player] = [0, 0, 0, 1].map {
+            Player(name: "\($0)", correctAnswers: $0 * (GameConstants.minimumWinnerScore - 1), incorrectAnswers: 0)
+        }
+
+        if worker.checkIfGameIsDone(players: players) != nil {
             initialNoWinnerExpectation.fulfill()
         }
         players[3].incrementCorrectCount()
-        if let _ = worker.checkIfGameIsDone(players: players) {
+        if worker.checkIfGameIsDone(players: players) != nil {
             winnerExpectation.fulfill()
         }
-        
-        wait(for: [winnerExpectation,initialNoWinnerExpectation], timeout: 2)
+
+        wait(for: [winnerExpectation, initialNoWinnerExpectation], timeout: 2)
     }
 }

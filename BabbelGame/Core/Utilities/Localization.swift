@@ -13,7 +13,7 @@ postfix func ~ (string: String) -> String {
     return NSLocalizedString(string, comment: "")
 }
 
-func displayNumber(_ value: Int) -> String{
+func displayNumber(_ value: Int) -> String {
     let numFormatter = NumberFormatter()
     numFormatter.locale = Locale.current
     return numFormatter.string(from: value as NSNumber) ?? ""

@@ -8,15 +8,15 @@
 import Foundation
 import UIKit
 
-final class SpyInitialGameInteractorDelegate : InitialGameInteractorDelegate {
+final class SpyInitialGameInteractorDelegate: InitialGameInteractorDelegate {
     func declareWinner(user: Player) {
         gameIsDone()
     }
-    
+
     var gameIsDone : () -> Void
-    
+
     init(gameIsDone: @escaping () -> Void) {
         self.gameIsDone = gameIsDone
     }
-    
+
 }

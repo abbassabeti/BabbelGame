@@ -10,15 +10,16 @@ import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession,
+               options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else {return}
         let window = UIWindow(windowScene: windowScene)
         self.window = window
 
         InitialGameRouter().presentInitialGame()
     }
-    
+
     static var shared: SceneDelegate? {
         for scene in UIApplication.shared.connectedScenes {
             if let delegate = scene.delegate as? SceneDelegate {
@@ -27,13 +28,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         return nil
     }
-    
-    class func presentView(view: AnyView){
+
+    class func presentView(view: AnyView) {
         guard let delegate = SceneDelegate.shared else {
             return
         }
         let hostingVC = UIHostingController(rootView: view)
-        if let navC = delegate.window?.rootViewController as? UINavigationController{
+        if let navC = delegate.window?.rootViewController as? UINavigationController {
             navC.pushViewController(hostingVC, animated: true)
         }
         let navC = UINavigationController(rootViewController: hostingVC)
@@ -41,4 +42,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         delegate.window?.makeKeyAndVisible()
     }
 }
-

@@ -9,7 +9,6 @@ import XCTest
 @testable import BabbelGame
 
 class InitialGamePresenterTests: XCTestCase {
-    
 
     override func setUpWithError() throws {
     }
@@ -21,15 +20,16 @@ class InitialGamePresenterTests: XCTestCase {
         let playedExpectation = expectation(description: "Played for a specific player")
         let proceededExpectation = expectation(description: "Proceeded game")
         let resetExpectation = expectation(description: "Resetted game")
-        let interactor: InitialGameInteractorProtocol = SpyInitialGameInteractor(playedForInfo: { playerIndex, meaning in
+        let interactor: InitialGameInteractorProtocol = SpyInitialGameInteractor(
+            playedForInfo: {_, _ in
             playedExpectation.fulfill()
         }, proceededGame: {
                 proceededExpectation.fulfill()
         }, resetedGame: {
             resetExpectation.fulfill()
         })
-        let presenter : InitialGamePresenter = InitialGamePresenter(interactor: interactor)
-        presenter.word = GameWord(original: "", meaning: "", fakeMeanings: ["X","Y"])
+        let presenter: InitialGamePresenter = InitialGamePresenter(interactor: interactor)
+        presenter.word = GameWord(original: "", meaning: "", fakeMeanings: ["X", "Y"])
         presenter.startGame()
         wait(for: [proceededExpectation], timeout: 1.0)
         presenter.playFor(userIndex: 0)

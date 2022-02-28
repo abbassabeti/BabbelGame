@@ -8,12 +8,12 @@
 import SwiftUI
 import Foundation
 
-protocol InitialGameRouterProtocol : AnyObject {
+protocol InitialGameRouterProtocol: AnyObject {
     func presentInitialGame()
 }
 
-class InitialGameRouter : InitialGameRouterProtocol {
-    func presentInitialGame(){
+class InitialGameRouter: InitialGameRouterProtocol {
+    func presentInitialGame() {
         let wordsWorker = WordsWorker()
         let stateWorker = CheckStateWorker()
         let interactor = InitialGameInteractor(wordWorker: wordsWorker, stateWorker: stateWorker)
@@ -22,4 +22,3 @@ class InitialGameRouter : InitialGameRouterProtocol {
         SceneDelegate.presentView(view: AnyView(view))
     }
 }
-

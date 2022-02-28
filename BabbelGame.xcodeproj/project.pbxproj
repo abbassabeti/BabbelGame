@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		050C8D3E27CA2E4A005572CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 050C8D3D27CA2E4A005572CE /* Assets.xcassets */; };
-		050C8D4127CA2E4A005572CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 050C8D4027CA2E4A005572CE /* Preview Assets.xcassets */; };
 		050C8D4B27CA2E4B005572CE /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C8D4A27CA2E4B005572CE /* PlayerTests.swift */; };
 		050C8D5527CA2E4B005572CE /* BabbelGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C8D5427CA2E4B005572CE /* BabbelGameUITests.swift */; };
 		050C8D5727CA2E4B005572CE /* BabbelGameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C8D5627CA2E4B005572CE /* BabbelGameUITestsLaunchTests.swift */; };
@@ -62,7 +61,6 @@
 /* Begin PBXFileReference section */
 		050C8D3627CA2E45005572CE /* BabbelGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabbelGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		050C8D3D27CA2E4A005572CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		050C8D4027CA2E4A005572CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		050C8D4627CA2E4B005572CE /* BabbelGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabbelGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		050C8D4A27CA2E4B005572CE /* PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
 		050C8D5027CA2E4B005572CE /* BabbelGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabbelGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,17 +152,8 @@
 				050C8D6627CA30E2005572CE /* Data */,
 				050C8D6727CA30EB005572CE /* Scene */,
 				050C8D3D27CA2E4A005572CE /* Assets.xcassets */,
-				050C8D3F27CA2E4A005572CE /* Preview Content */,
 			);
 			path = BabbelGame;
-			sourceTree = "<group>";
-		};
-		050C8D3F27CA2E4A005572CE /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				050C8D4027CA2E4A005572CE /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		050C8D4927CA2E4B005572CE /* BabbelGameTests */ = {
@@ -291,6 +280,7 @@
 				050C8D3227CA2E45005572CE /* Sources */,
 				050C8D3327CA2E45005572CE /* Frameworks */,
 				050C8D3427CA2E45005572CE /* Resources */,
+				050C8DB527CCFBC9005572CE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -387,7 +377,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				050C8D7E27CA50C0005572CE /* words.json in Resources */,
-				050C8D4127CA2E4A005572CE /* Preview Assets.xcassets in Resources */,
 				050C8D3E27CA2E4A005572CE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +396,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		050C8DB527CCFBC9005572CE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		050C8D3227CA2E45005572CE /* Sources */ = {
@@ -600,7 +609,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BabbelGame/Preview Content\"";
 				DEVELOPMENT_TEAM = E4YL2MG9YD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -631,7 +639,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BabbelGame/Preview Content\"";
 				DEVELOPMENT_TEAM = E4YL2MG9YD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
