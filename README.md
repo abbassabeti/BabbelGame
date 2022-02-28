@@ -12,7 +12,7 @@ I have invested about 5 hours on this assignment. The distribution of these 5 ho
     5. Writing TestDoubles: 15 min
     4. Writing tests: 1 h
     5. Writing this doc: 15 min
-    6. Some final touches on code style: 15 min
+    6. Some final touches on code style: 30 min
 
 ## Decisions:
 
