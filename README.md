@@ -28,6 +28,8 @@ There has been some decisions for having a sensible flow in the game, including:
 
 5. Another point which I have been thinking of, is how we are going to route to the other pages from first screen in the future. I think NavigationLink, could cause the architecture a little bit messy, since we have to provide the next view right in the first view, which can cause adding views to presenter or adding logic to view for opening the next screen. I have defined the transitions like what we usually do in UIKit. part of this is happing in a class function in the SceneDelagte, which is accessible everywhere using a static variable. Since we don't use it for any saving state or sharing data, I think this is a good workaround for keeping the architecture neat and not misusing elements by mistake. Router is responsible for creating the requirements for each scene and calling SceneDelegate class function to navigate among screens. We probably also need some other methods there if we are gonna use different navigationControllers for nested flows in the app.
 
+6. For having a proper code style, I have used SwiftLint as a Run Script in my Build Phases. It should run without any problem if you don't have it on your machine.
+
 ## Room for improvement:
 
 1. It's a good idea to add some predictable game scenario to add UITest to the application. For instance, if we could create a scenario which the meanings which came in the third transition is always correct, we could made a flow for winning the game for any player and the test the conditions over it. I didn't find the time to do it. But it's not a bad idea to have some UI Test for it.
